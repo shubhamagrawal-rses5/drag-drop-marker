@@ -46,7 +46,7 @@ function App() {
   
     <Wrapper apiKey="AIzaSyBD7x-Hg9Yfzwn6sEpO39RD32nkJkSpdj8" render={render}>
       <MyMapComponent center={center} zoom={zoom} onClick={onClick} onIdle={onIdle}>
-        <Marker position={position} changePosition={onClick}/>
+        <Marker position={position} changePosition={onClick} radius={radius}/>
       </MyMapComponent>
       <Form
         position={position}
