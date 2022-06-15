@@ -14,7 +14,7 @@ const render = (status) => {
 
 function App() {
   const [position, setPosition] = useState({ lat: 40.714, lng: -74.005 });
-  const [radius, setRadius] = useState(20);
+  const [radius, setRadius] = useState(10);
   const [zoom, setZoom] = useState(10);
   const [center, setCenter] = useState({ lat: 40.714, lng: -74.005 });
   const changeLatitude = (event) => {
