@@ -27,8 +27,10 @@ export default function MyMapComponent({ center, zoom, children,onClick,onIdle }
         window.google.maps.event.clearListeners(map, eventName)
       );
       if (onClick) {
-        map.addListener("click", (e)=>{console.log(e);
-          onClick(e);});
+        window.google.maps.event.addListener(map, 'click', function(event) {
+          onClick(JSON.stringify(event.latLng)); 
+      });
+    
       }
       if (onIdle) {
         map.addListener("idle", () => onIdle(map));
@@ -79,7 +81,7 @@ function useDeepCompareEffectForMaps(
   callback,
   dependencies
 ) {
-  React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
+   useEffect(callback, dependencies.map(useDeepCompareMemoize));
 }
 
 

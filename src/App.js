@@ -29,24 +29,24 @@ function App() {
   const changeRadius = (event) => {
     setRadius(Number(event.target.value));
   };
-  const onClick = (event) => {
+  const onClick = (coordinates) => {
     // console.log(event)
-    setPosition(event.latLng);
+    setPosition(JSON.parse(coordinates));
   };
   const onIdle = (m) => {
-    console.log("onIdle");
+    // console.log("onIdle");
     setZoom(m.getZoom());
     setCenter(m.getCenter());
   };
   // const onDrop = (e) => {
   //   setPosition(e.latLng);
   // };
-  console.log(position);
+  // console.log(position);
   return (
   
     <Wrapper apiKey="AIzaSyBD7x-Hg9Yfzwn6sEpO39RD32nkJkSpdj8" render={render}>
       <MyMapComponent center={center} zoom={zoom} onClick={onClick} onIdle={onIdle}>
-        <Marker position={position} />
+        <Marker position={position} changePosition={onClick}/>
       </MyMapComponent>
       <Form
         position={position}
