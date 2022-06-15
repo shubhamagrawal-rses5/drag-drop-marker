@@ -43,7 +43,7 @@ export default function Form({
         <div className="entry">
           <label htmlFor="units">Units</label>
           <select name="dropdown">
-            <option value="meters">meters</option>
+            <option value="miles">miles</option>
             <option value="kilometers">kilometers</option>
           </select>
         </div>

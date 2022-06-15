@@ -13,18 +13,15 @@ const render = (status) => {
 };
 
 function App() {
-  const [position, setPosition] = useState({ lat: 5, lng: 5 });
-  const [radius, setRadius] = useState(2000);
-  const [zoom, setZoom] = useState(3);
-  const [center, setCenter] = useState({
-    lat: 0,
-    lng: 0,
-  });
+  const [position, setPosition] = useState({ lat: 40.714, lng: -74.005 });
+  const [radius, setRadius] = useState(20);
+  const [zoom, setZoom] = useState(10);
+  const [center, setCenter] = useState({ lat: 40.714, lng: -74.005 });
   const changeLatitude = (event) => {
-    setPosition({ ...position, lat: Number(event.target.value)});
+    setPosition({ ...position, lat: Number(event.target.value) });
   };
   const changeLongitude = (event) => {
-    setPosition({ ...position, lng: Number(event.target.value)});
+    setPosition({ ...position, lng: Number(event.target.value) });
   };
   const changeRadius = (event) => {
     setRadius(Number(event.target.value));
@@ -43,10 +40,14 @@ function App() {
   // };
   // console.log(position);
   return (
-  
     <Wrapper apiKey="AIzaSyBD7x-Hg9Yfzwn6sEpO39RD32nkJkSpdj8" render={render}>
-      <MyMapComponent center={center} zoom={zoom} onClick={onClick} onIdle={onIdle}>
-        <Marker position={position} changePosition={onClick} radius={radius}/>
+      <MyMapComponent
+        center={center}
+        zoom={zoom}
+        onClick={onClick}
+        onIdle={onIdle}
+      >
+        <Marker position={position} changePosition={onClick} radius={radius} />
       </MyMapComponent>
       <Form
         position={position}
