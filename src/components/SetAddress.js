@@ -7,7 +7,7 @@ export default function SetAddress({ position, changeAddress }) {
       .geocode({ location: position })
       .then((response) => {
         if (response.results[0]) {
-          console.log(response.results[0].formatted_address);
+          // console.log(response.results[0].formatted_address);
           changeAddress(response.results[0].formatted_address);
         } else {
           window.alert("No results found");

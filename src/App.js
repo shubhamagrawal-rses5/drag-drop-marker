@@ -43,7 +43,7 @@ function App() {
 
   // console.log(position);
   return (
-    <Wrapper apiKey="AIzaSyBD7x-Hg9Yfzwn6sEpO39RD32nkJkSpdj8" render={render}>
+    <Wrapper apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY} render={render}>
       <MyMapComponent
         center={position}
         zoom={zoom}
