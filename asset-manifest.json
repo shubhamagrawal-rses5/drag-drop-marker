@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/drag-drop-marker/static/css/main.6c09a7f9.css",
-    "main.js": "/drag-drop-marker/static/js/main.6be02b5d.js",
+    "main.css": "/drag-drop-marker/static/css/main.a20bcebc.css",
+    "main.js": "/drag-drop-marker/static/js/main.db822d7d.js",
     "static/js/787.2de9e1bf.chunk.js": "/drag-drop-marker/static/js/787.2de9e1bf.chunk.js",
     "index.html": "/drag-drop-marker/index.html",
-    "main.6c09a7f9.css.map": "/drag-drop-marker/static/css/main.6c09a7f9.css.map",
-    "main.6be02b5d.js.map": "/drag-drop-marker/static/js/main.6be02b5d.js.map",
+    "main.a20bcebc.css.map": "/drag-drop-marker/static/css/main.a20bcebc.css.map",
+    "main.db822d7d.js.map": "/drag-drop-marker/static/js/main.db822d7d.js.map",
     "787.2de9e1bf.chunk.js.map": "/drag-drop-marker/static/js/787.2de9e1bf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c09a7f9.css",
-    "static/js/main.6be02b5d.js"
+    "static/css/main.a20bcebc.css",
+    "static/js/main.db822d7d.js"
   ]
 }
