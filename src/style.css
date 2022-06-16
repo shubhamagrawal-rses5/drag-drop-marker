@@ -1,24 +1,36 @@
-.form {
-  padding: 1rem;
+.form-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   text-align: center;
-  margin-bottom:5px;
 }
+.form {
+  text-align: center;
+  margin: 4px auto;
+  display: inline-block;
+}
+
 .form .entry {
   display: inline-block;
-  margin: 0px 10px;
+  margin: 0px 1.5em;
+}
+.form .entry-address {
+  margin: 0em 1.5rem;
+  margin-bottom: 0.5em;
 }
 label {
   display: block;
-  margin-bottom: 0.5rem;
-  font-size: Medium;
+  margin-bottom: 0.25rem;
+  font-size: small;
   font-weight: bold;
-  text-align:left;
+  text-align: left;
 }
 
-input, select {
+input,
+select {
   display: block;
   width: 100%;
-  padding: 0.25rem;
+  /* padding: 0.25rem; */
   box-sizing: border-box;
-  font-size: medium;
+  font-size: small;
 }

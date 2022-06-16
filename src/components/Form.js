@@ -2,14 +2,19 @@ import React from "react";
 import "./../style.css";
 export default function Form({
   position,
+  address,
   changeLatitude,
   changeLongitude,
   radius,
   changeRadius,
 }) {
   return (
-    <>
+    <div class="form-container">
       <div className="form">
+        <div className="entry-address">
+          <label htmlFor="address">Address</label>
+          <input type="text" id="address" name="address" value={address} />
+        </div>
         <div className="entry">
           <label htmlFor="lat">Latitude</label>
           <input
@@ -48,6 +53,6 @@ export default function Form({
           </select>
         </div>
       </div>
-    </>
+    </div>
   );
 }

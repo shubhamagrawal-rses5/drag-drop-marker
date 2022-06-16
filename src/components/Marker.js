@@ -5,26 +5,27 @@ export default function Marker({ position, changePosition, radius, map }) {
   const [circle, setCircle] = useState(null);
   useEffect(() => {
     if (!marker) {
-      let markertemp = new window.google.maps.Marker({});
-      setMarker(markertemp);
+      let markerTemp = new window.google.maps.Marker({});
+      setMarker(markerTemp);
 
-      window.google.maps.event.addListener(markertemp, "drag", function (e) {
+      window.google.maps.event.addListener(markerTemp, "dragend", function (e) {
         // console.log(JSON.stringify(e.latLng));
         changePosition(JSON.stringify(e.latLng));
       });
     }
 
     if (!circle) {
-      let circletemp = new window.google.maps.Circle({
+      let circleTemp = new window.google.maps.Circle({
         strokeColor: "#FF0000",
         strokeOpacity: 0.8,
         strokeWeight: 2,
         fillColor: "#FF0000",
         fillOpacity: 0.35,
       });
-      setCircle(circletemp);
+      setCircle(circleTemp);
     }
   }, [marker]);
+
   useEffect(() => {
     if (marker) {
       marker.setMap(map);
