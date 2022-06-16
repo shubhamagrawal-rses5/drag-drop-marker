@@ -16,11 +16,11 @@ export default function Marker({ position, changePosition, radius, map }) {
 
     if (!circle) {
       let circleTemp = new window.google.maps.Circle({
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
+        strokeColor: "#0096FF",
+        strokeOpacity: 1,
         strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
+        fillColor: "#0096FF",
+        fillOpacity: 0.3,
       });
       setCircle(circleTemp);
     }
