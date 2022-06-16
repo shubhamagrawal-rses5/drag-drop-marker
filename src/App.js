@@ -45,7 +45,7 @@ function App() {
   return (
     <Wrapper apiKey="AIzaSyBD7x-Hg9Yfzwn6sEpO39RD32nkJkSpdj8" render={render}>
       <MyMapComponent
-        center={center}
+        center={position}
         zoom={zoom}
         onClick={onClick}
         onIdle={onIdle}

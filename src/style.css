@@ -3,11 +3,14 @@
   bottom: 0;
   width: 100%;
   text-align: center;
+  box-sizing: border-box;
+  height: 15vh;
+  overflow-y: scroll;
 }
 .form {
   text-align: center;
-  margin: 4px auto;
   display: inline-block;
+  margin-top: 1em;
 }
 
 .form .entry {
@@ -21,7 +24,7 @@
 label {
   display: block;
   margin-bottom: 0.25rem;
-  font-size: small;
+  font-size: medium;
   font-weight: bold;
   text-align: left;
 }
@@ -32,5 +35,5 @@ select {
   width: 100%;
   /* padding: 0.25rem; */
   box-sizing: border-box;
-  font-size: small;
+  font-size: medium;
 }

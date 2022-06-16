@@ -9,7 +9,7 @@ export default function Form({
   changeRadius,
 }) {
   return (
-    <div class="form-container">
+    <div className="form-container">
       <div className="form">
         <div className="entry-address">
           <label htmlFor="address">Address</label>

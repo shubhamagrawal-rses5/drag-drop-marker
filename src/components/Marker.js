@@ -35,7 +35,8 @@ export default function Marker({ position, changePosition, radius, map }) {
     if (circle) {
       circle.setMap(map);
       circle.setCenter(position);
-      circle.setRadius(radius*1609.34);// radius in miles so convert it meters
+      circle.setRadius(radius*1000);// radius in miles so convert it meters
+      map.fitBounds(circle.getBounds());
     }
   }, [marker, position, map,radius]);
 

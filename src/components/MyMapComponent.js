@@ -3,7 +3,7 @@ import { createCustomEqual } from "fast-equals";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
 
 const style = {
-  height: "90vh",
+  height: "85vh",
   width: "100%",
 };
 
