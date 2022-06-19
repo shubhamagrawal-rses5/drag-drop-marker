@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const MILES_TO_KILOMETERS = 1.609344;
+
 export default function Marker({ position, changePosition, radius, map }) {
   const [marker, setMarker] = useState(null);
   const [circle, setCircle] = useState(null);
@@ -31,14 +33,25 @@ export default function Marker({ position, changePosition, radius, map }) {
       marker.setMap(map);
       marker.setPosition(position);
       marker.setDraggable(true);
+      window.google.maps.event.addListener(marker, "drag", function (e) {
+        // console.log(JSON.stringify(e.latLng));
+        circle.setCenter(marker.position);
+      });
     }
     if (circle) {
       circle.setMap(map);
       circle.setCenter(position);
-      circle.setRadius(radius*1000);// radius in miles so convert it meters
+      let circleRadius;
+      if(radius.unit==='kilometers'){
+         circleRadius =  radius.value*1000;
+      }
+      else if(radius.unit==='miles'){
+        circleRadius =  MILES_TO_KILOMETERS*radius.value*1000;
+      }
+      circle.setRadius(circleRadius); // radius in kilometers so convert it meters
       map.fitBounds(circle.getBounds());
     }
-  }, [marker, position, map,radius]);
+  }, [marker, position, map, radius,circle]);
 
   return null;
 }

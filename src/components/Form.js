@@ -1,5 +1,6 @@
 import React from "react";
 import "./../style.css";
+
 export default function Form({
   position,
   address,
@@ -8,6 +9,7 @@ export default function Form({
   radius,
   changeRadius,
 }) {
+ 
   return (
     <div className="form-container">
       <div className="form">
@@ -41,15 +43,24 @@ export default function Form({
             type="number"
             id="radius"
             name="radius"
-            value={radius}
-            onChange={(event) => changeRadius(event)}
+            value={radius.value}
+            onChange={(event) =>
+              changeRadius({ ...radius, value: event.target.value })
+            }
           />
         </div>
         <div className="entry">
           <label htmlFor="units">Units</label>
-          <select name="dropdown">
-            <option value="miles">miles</option>
-            <option value="kilometers">kilometers</option>
+          <select
+            id="units"
+            name="dropdown"
+            defaultValue={radius.unit}
+            onChange={(event) =>
+              changeRadius({ ...radius, unit: event.target.value })
+            }
+          >
+            <option value="miles">Miles</option>
+            <option value="kilometers">Kilometers</option>
           </select>
         </div>
       </div>

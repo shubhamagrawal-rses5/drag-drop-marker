@@ -4,7 +4,7 @@ import Loading from "./components/Loading";
 import "./style.css";
 import Marker from "./components/Marker";
 import MyMapComponent from "./components/MyMapComponent";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "./components/Form";
 import SetAddress from "./components/SetAddress";
 
@@ -16,9 +16,8 @@ const render = (status) => {
 function App() {
   const [position, setPosition] = useState({ lat: 40.714, lng: -74.005 }); // initial position to NewYork
   const [address, setAddress] = useState();
-  const [radius, setRadius] = useState(10); //intial radius to 10 miles
+  const [radius, setRadius] = useState({value:10,unit:'kilometers'}); //intial radius to 10 kilometrs
   const [zoom, setZoom] = useState(10); //intial zoom 10
-  const [center, setCenter] = useState({ lat: 40.714, lng: -74.005 }); // center of the map 
 
   const changeLatitude = (event) => {
     setPosition({ ...position, lat: Number(event.target.value) });
@@ -26,22 +25,41 @@ function App() {
   const changeLongitude = (event) => {
     setPosition({ ...position, lng: Number(event.target.value) });
   };
-  const changeRadius = (event) => {
-    setRadius(Number(event.target.value));
+  const changeRadius = (radius) => {
+    setRadius(radius);
   };
   const changeAddress = (value) => {
     setAddress(value);
   };
   const onClick = (coordinates) => {
-    // console.log(event)
     setPosition(JSON.parse(coordinates));
   };
   const onIdle = (map) => {
     setZoom(map.getZoom());
-    setCenter(map.getCenter());
   };
 
-  // console.log(position);
+  /* Autodetect Geolocation to your current location*/
+//   useEffect(()=>{
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition(
+//         (position) => {
+//           const pos = {
+//             lat: position.coords.latitude,
+//             lng: position.coords.longitude,
+//           };
+// setPosition(pos);
+//         },
+//         () => {
+//           // The Geolocation service failed.
+//           setPosition({ lat: 40.714, lng: -74.005 });
+//         }
+//       );
+//     } else {
+//       // Browser doesn't support Geolocation
+//      setPosition({ lat: 40.714, lng: -74.005 });
+//     }
+//   },[]);
+ 
   return (
     <Wrapper apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY} render={render}>
       <MyMapComponent
