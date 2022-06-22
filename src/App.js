@@ -2,12 +2,10 @@ import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import Error from "./components/Error";
 import Loading from "./components/Loading";
 import "./style.css";
-import Marker from "./components/Marker";
 import MyMapComponent from "./components/MyMapComponent";
 import { useState } from "react";
 import Form from "./components/Form";
-// import SetAddress from "./components/SetAddress";
-// import useSetAddress from './hooks/useSetAddress';
+
 
 const render = (status) => {
   if (status === Status.FAILURE) return <Error />;
@@ -75,7 +73,6 @@ function App() {
         changeAddress={changeAddress}
         radius={radius}
       >
-        <Marker position={position} changePosition={onClick} radius={radius} />
       </MyMapComponent>
       <Form
         position={position}
@@ -85,11 +82,6 @@ function App() {
         changeLongitude={changeLongitude}
         changeRadius={changeRadius}
       ></Form>
-      {/* <SetAddress
-        position={position}
-        address={address}
-        changeAddress={changeAddress}
-  />*/}
 
     </Wrapper>
     
