@@ -4,20 +4,24 @@ import Loading from "./components/Loading";
 import "./style.css";
 import Marker from "./components/Marker";
 import MyMapComponent from "./components/MyMapComponent";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Form from "./components/Form";
-import SetAddress from "./components/SetAddress";
+// import SetAddress from "./components/SetAddress";
+// import useSetAddress from './hooks/useSetAddress';
 
 const render = (status) => {
   if (status === Status.FAILURE) return <Error />;
   return <Loading />;
 };
 
+
 function App() {
   const [position, setPosition] = useState({ lat: 40.714, lng: -74.005 }); // initial position to NewYork
   const [address, setAddress] = useState();
   const [radius, setRadius] = useState({value:10,unit:'kilometers'}); //intial radius to 10 kilometrs
   const [zoom, setZoom] = useState(10); //intial zoom 10
+
+
 
   const changeLatitude = (event) => {
     setPosition({ ...position, lat: Number(event.target.value) });
@@ -37,6 +41,7 @@ function App() {
   const onIdle = (map) => {
     setZoom(map.getZoom());
   };
+
 
   /* Autodetect Geolocation to your current location*/
 //   useEffect(()=>{
@@ -67,6 +72,8 @@ function App() {
         zoom={zoom}
         onClick={onClick}
         onIdle={onIdle}
+        changeAddress={changeAddress}
+        radius={radius}
       >
         <Marker position={position} changePosition={onClick} radius={radius} />
       </MyMapComponent>
@@ -78,13 +85,17 @@ function App() {
         changeLongitude={changeLongitude}
         changeRadius={changeRadius}
       ></Form>
-      <SetAddress
+      {/* <SetAddress
         position={position}
         address={address}
         changeAddress={changeAddress}
-      />
+  />*/}
+
     </Wrapper>
+    
   );
+
+
 }
 
 export default App;

@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createCustomEqual } from "fast-equals";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
+import useSetAddress from './../hooks/useSetAddress';
+import useMarker from "../hooks/useMarker";
+
 
 const style = {
   height: "85vh",
@@ -13,9 +16,12 @@ export default function MyMapComponent({
   children,
   onClick,
   onIdle,
+  changeAddress,radius
 }) {
   const ref = useRef(null);
   const [map, setMap] = useState();
+  const [marker, setMarker] = useState(null);
+  const [circle, setCircle] = useState(null);
 
   useEffect(() => {
     if (ref.current && !map) {
@@ -43,6 +49,9 @@ export default function MyMapComponent({
       }
     }
   }, [map, onClick, onIdle]);
+
+  useSetAddress(center, changeAddress)
+  useMarker(marker,setMarker,circle,setCircle,center,onClick,radius,map);
 
   return (
     <>
