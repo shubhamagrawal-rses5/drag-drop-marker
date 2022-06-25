@@ -20,8 +20,6 @@ export default function MyMapComponent({
 }) {
   const ref = useRef(null);
   const [map, setMap] = useState();
-  const [marker, setMarker] = useState(null);
-  const [circle, setCircle] = useState(null);
 
   useEffect(() => {
     if (ref.current && !map) {
@@ -51,7 +49,7 @@ export default function MyMapComponent({
   }, [map, onClick, onIdle]);
 
   useSetAddress(center, changeAddress)
-  useMarker(marker,setMarker,circle,setCircle,center,onClick,radius,map);
+  useMarker(center,onClick,radius,map);
 
   return (
     <>

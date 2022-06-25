@@ -1,9 +1,11 @@
-import {useEffect} from 'react'
+import {useEffect,useState} from 'react'
 
 const MILES_TO_KILOMETERS = 1.609344;
 
-export default function useMarker(marker,setMarker,circle,setCircle,position,changePosition,radius,map) {
-
+export default function useMarker(position,changePosition,radius,map) 
+{
+  const [marker, setMarker] = useState(null);
+  const [circle, setCircle] = useState(null);
     useEffect(() => {
         if (!marker) {
           let markerTemp = new window.google.maps.Marker({});
@@ -25,9 +27,6 @@ export default function useMarker(marker,setMarker,circle,setCircle,position,cha
           });
           setCircle(circleTemp);
         }
-      }, [marker]);
-    
-      useEffect(() => {
         if (marker) {
           marker.setMap(map);
           marker.setPosition(position);
